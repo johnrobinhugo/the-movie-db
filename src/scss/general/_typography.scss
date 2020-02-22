@@ -1,0 +1,74 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+
+  + * {
+    margin-top: 10px
+  }
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.3em;
+}
+
+h2 {
+  font-size: 25px;
+  line-height: 1.2em;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  
+}
+
+p {
+  font-size: var(--base-font-size);
+  line-height: 1.5em;
+}
+
+// Color classes
+.color-white {
+  color: var(--color-white);
+}
+
+@include for-tablet-landscape-up {
+  h1 {
+    font-size: 45px;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+  
+  h3 {
+    font-size: 25px;
+  }
+  
+  h4 {
+    font-size: 20px;
+  }
+  
+  h5 {
+    font-size: 18px;
+  }
+  
+  h6 {
+    
+  }
+}

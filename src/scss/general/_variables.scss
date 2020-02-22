@@ -1,0 +1,15 @@
+:root {
+  // Colors
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark-grey: #2B2B2B;
+  --color-yellow: #EDE744;
+
+  // Typography
+  --base-font-family: 'Montserrat', sans-serif;
+  --base-font-size: 14px;
+
+  @include for-tablet-portrait-up {
+    --base-font-size: 16px;
+  }
+}

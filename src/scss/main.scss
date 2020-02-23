@@ -1,5 +1,5 @@
 // External
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap');
 
 // General
 @import 'general/reset';
@@ -11,7 +11,13 @@
 
 // Atoms
 @import 'atoms/buttons';
+@import 'atoms/arrow-link';
 
 // Molecules
 @import 'molecules/header';
 @import 'molecules/hero';
+@import 'molecules/teaser';
+@import 'molecules/footer';
+
+// Organisms
+@import 'organisms/content-section';

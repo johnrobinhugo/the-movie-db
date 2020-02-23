@@ -8,3 +8,34 @@
     margin-right: 20px;
   }
 }
+
+// Grids
+.grid {
+  display: grid;
+  column-gap: var(--spacing-2);
+  row-gap: var(--spacing-4);
+
+  @include for-phone-only {
+    &--5-col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    &--5-col {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    &--5-col {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @include for-desktop-up {
+    &--5-col {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+}

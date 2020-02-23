@@ -1,15 +1,18 @@
 import React from 'react';
 
 import Hero from '../molecules/Hero';
+import ContentSection from '../organisms/ContentSection';
+import ContentGrid from '../organisms/ContentGrid';
 
 class FrontPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      popularMovies: null,
+      popularMovies: [],
       randomMovie: {},
       baseUrl: [],
-      backdropSizes: []
+      backdropSizes: [],
+      posterSizes: []
     }
    }
 
@@ -22,7 +25,8 @@ class FrontPage extends React.Component {
       .then((data) => {
         this.setState({ 
           baseUrl: data.images.base_url,
-          backdropSizes: data.images.backdrop_sizes
+          backdropSizes: data.images.backdrop_sizes,
+          posterSizes: data.images.poster_sizes
         });
       })
       .catch((error) => {
@@ -55,7 +59,10 @@ class FrontPage extends React.Component {
 
     return (
       <main className="page">
-        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} bgImgUrl={bgImageUrl} />
+        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} bgImgUrl={bgImageUrl}/>
+        <ContentSection title="Popular movies" sectionLink="/movies" sectionLinkTitle="All movies">
+          <ContentGrid content={this.state.popularMovies} gridItems={5} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
+        </ContentSection>
       </main>
     )
   }

@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Header from './components/molecules/Header';
 import FrontPage from './components/pages/FrontPage';
+import Footer from './components/molecules/Footer';
 
 import './scss/main.scss';
 
@@ -24,6 +25,7 @@ class App extends React.Component {
             <FrontPage />
           </Route>
         </Switch>
+        <Footer />
       </div>
     )
   }

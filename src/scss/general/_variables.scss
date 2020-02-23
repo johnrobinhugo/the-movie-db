@@ -9,6 +9,14 @@
   --base-font-family: 'Montserrat', sans-serif;
   --base-font-size: 14px;
 
+  // Spacing
+  --spacing-1: 10px;
+  --spacing-2: 20px;
+  --spacing-3: 30px;
+  --spacing-4: 40px;
+  --spacing-5: 50px;
+  --spacing-6: 60px;
+
   @include for-tablet-portrait-up {
     --base-font-size: 16px;
   }

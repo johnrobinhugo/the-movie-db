@@ -9,6 +9,18 @@
   }
 }
 
+.page > * {
+  margin-top: var(--spacing-6);
+
+  &.hero {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: var(--spacing-6);
+  }
+}
+
 // Grids
 .grid {
   display: grid;

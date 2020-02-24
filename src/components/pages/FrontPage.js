@@ -3,6 +3,7 @@ import React from 'react';
 import Hero from '../molecules/Hero';
 import ContentSection from '../organisms/ContentSection';
 import ContentGrid from '../organisms/ContentGrid';
+import Notice from '../molecules/Notice';
 
 class FrontPage extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class FrontPage extends React.Component {
     this.state = {
       popularMovies: [],
       randomMovie: {},
+      popularTvShows: [],
       baseUrl: [],
       backdropSizes: [],
       posterSizes: []
@@ -48,6 +50,18 @@ class FrontPage extends React.Component {
       .catch((error) => {
         console.log(error);
       });;
+
+    // Get Tv shows
+    fetch('https://api.themoviedb.org/3/tv/popular?api_key=' + apiKey +'&language=en-US&page=1')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          popularTvShows: data.results
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });;
   }
 
   render() {
@@ -59,10 +73,14 @@ class FrontPage extends React.Component {
 
     return (
       <main className="page">
-        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} bgImgUrl={bgImageUrl}/>
+        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} link="/" linkTitle="View movie" bgImgUrl={bgImageUrl}/>
         <ContentSection title="Popular movies" sectionLink="/movies" sectionLinkTitle="All movies">
-          <ContentGrid content={this.state.popularMovies} gridItems={5} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
+          <ContentGrid content={this.state.popularMovies} gridItems={10} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
         </ContentSection>
+        <ContentSection title="Popular Tv shows" sectionLink="/tv-shows" sectionLinkTitle="All Tv shows">
+          <ContentGrid content={this.state.popularTvShows} gridItems={10} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
+        </ContentSection>
+        <Notice title="Searching for your favorite movie or tv show?" link="/search" linkTitle="Go to search" />
       </main>
     )
   }

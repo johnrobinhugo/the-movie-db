@@ -17,8 +17,8 @@ class Navigation extends React.Component {
         },
         {
           id: 2,
-          name: 'Discover',
-          link: '/discover'
+          name: 'Search',
+          link: '/search'
         }
       ]
     }

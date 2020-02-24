@@ -8,13 +8,18 @@
   text-decoration: none;
 }
 
-.toggle-menu {
+button.toggle-menu {
   background: transparent url('../../images/icons/icon-hamburger-white.svg') center right / contain no-repeat;
   width: 25px;
   height: 25px;
 
   &--open {
     background: transparent url('../../images/icons/icon-close-white.svg') center right / 28px 20px no-repeat;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
   }
 }
 

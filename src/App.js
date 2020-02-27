@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Header from './components/molecules/Header';
 import FrontPage from './components/pages/FrontPage';
+import MoviePage from './components/pages/MoviePage';
 import Footer from './components/molecules/Footer';
 
 import './scss/main.scss';
@@ -21,6 +22,9 @@ class App extends React.Component {
           {/* <Route path="/atoms/buttons">
             <Buttons />
           </Route> */}
+          <Route path="/movies/:id">
+            <MoviePage />
+          </Route>
           <Route path="/">
             <FrontPage />
           </Route>

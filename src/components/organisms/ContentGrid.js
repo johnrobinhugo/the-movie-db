@@ -23,7 +23,7 @@ function ContentGrid(props) {
     <div className="grid grid--5-col">
       {
         props.content.map(function(contentItem) {
-          return <Teaser imgUrl={contentItem.teaserImgUrl} title={contentItem.title} key={contentItem.id}/>
+          return <Teaser imgUrl={contentItem.teaserImgUrl} title={contentItem.title} id={contentItem.id} key={contentItem.id}/>
         })
       }
     </div>

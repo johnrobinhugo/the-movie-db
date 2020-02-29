@@ -16,7 +16,7 @@ class MoviePage extends React.Component {
     const apiKey = '629509ed105e3999068ed4c71c959130';
 
     // Get API configs like images sizes
-    fetch('https://api.themoviedb.org/3/configuration?api_key=' + apiKey)
+    fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKey}`)
       .then(response => response.json())
       .then((data) => {
         this.setState({ 
@@ -29,7 +29,9 @@ class MoviePage extends React.Component {
       });
 
     // Get data for a movie
-    fetch('https://api.themoviedb.org/3/movie/454626?api_key=' + apiKey)
+    const id = this.props.match.params.id;
+
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
       .then(response => response.json())
       .then((data) => {
         console.log(data)
@@ -44,15 +46,21 @@ class MoviePage extends React.Component {
 
   render() {
 
-    // const baseUrl = this.state.baseUrl;
-    // const backdropSize = this.state.backdropSizes[3];
-    // const backdropPath = this.state.randomMovie.backdrop_path;
-    // const bgImageUrl = baseUrl.concat(backdropSize, backdropPath)
+    const baseUrl = this.state.baseUrl;
+    const backdropSize = this.state.backdropSizes[3];
+    const backdropPath = this.state.movie.backdrop_path;
+    const bgImageUrl = baseUrl.concat(backdropSize, backdropPath)
 
     return (
       <main className="page">
-        {/* <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} link="/" linkTitle="View movie" bgImgUrl={bgImageUrl}/> */}
-        
+        <Hero title={this.state.movie.title} bgImgUrl={bgImageUrl}/>
+        <div className="content">
+          <div className="page-wrapper">
+            <p>
+              {this.state.movie.overview}
+            </p>
+          </div>
+        </div>
       </main>
     )
   }

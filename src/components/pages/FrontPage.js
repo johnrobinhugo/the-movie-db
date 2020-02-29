@@ -73,7 +73,7 @@ class FrontPage extends React.Component {
 
     return (
       <main className="page">
-        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} link="/" linkTitle="View movie" bgImgUrl={bgImageUrl}/>
+        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} link="/" linkTitle="View movie" bgImgUrl={bgImageUrl} showLargeHero={true}/>
         <ContentSection title="Popular movies" sectionLink="/movies" sectionLinkTitle="All movies">
           <ContentGrid content={this.state.popularMovies} gridItems={10} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
         </ContentSection>

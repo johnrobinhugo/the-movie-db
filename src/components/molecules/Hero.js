@@ -6,8 +6,6 @@ function Hero(props) {
 
   const showLargeHero = props.showLargeHero;
 
-  console.log(showLargeHero)
-
   return (
     <section className={`hero ${showLargeHero ? "hero--large" : ""}`} style={{backgroundImage: "url(" + props.bgImgUrl + ")"}}>
       <div className="hero__content color-white page-wrapper">

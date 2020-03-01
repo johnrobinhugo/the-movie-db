@@ -12,12 +12,28 @@
 .page > * {
   margin-top: var(--spacing-6);
 
-  &.hero {
+  &.hero,
+  &.hero + .bg-white {
     margin-top: 0;
   }
 
   &:last-child {
     margin-bottom: var(--spacing-6);
+  }
+}
+
+.primary-content {
+  background-color: var(--color-white);
+  padding: var(--spacing-3) 0;
+  display: grid;
+  row-gap: var(--spacing-4);
+}
+
+@include for-tablet-landscape-up {
+  .primary-content {
+    grid-template-columns: 1fr 400px;
+    column-gap: var(--spacing-6);
+    padding: var(--spacing-6) 0;
   }
 }
 

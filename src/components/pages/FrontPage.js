@@ -22,7 +22,7 @@ class FrontPage extends React.Component {
     const apiKey = '629509ed105e3999068ed4c71c959130';
 
     // Get API configs like images sizes
-    fetch('https://api.themoviedb.org/3/configuration?api_key=' + apiKey)
+    fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKey}`)
       .then(response => response.json())
       .then((data) => {
         this.setState({ 
@@ -36,7 +36,7 @@ class FrontPage extends React.Component {
       });
 
     // Get movies
-    fetch('https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&popularity.asc&include_adult=false&include_video=false&page=1')
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&popularity.asc&include_adult=false&include_video=false&page=1`)
       .then(response => response.json())
       .then(data => {
         let movies = data.results;
@@ -52,7 +52,7 @@ class FrontPage extends React.Component {
       });;
 
     // Get Tv shows
-    fetch('https://api.themoviedb.org/3/tv/popular?api_key=' + apiKey +'&language=en-US&page=1')
+    fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -73,12 +73,12 @@ class FrontPage extends React.Component {
 
     return (
       <main className="page">
-        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} link="/" linkTitle="View movie" bgImgUrl={bgImageUrl} showLargeHero={true}/>
+        <Hero title={this.state.randomMovie.title} body={this.state.randomMovie.overview} link={`/movies/${this.state.randomMovie.id}`}  linkTitle="View movie" bgImgUrl={bgImageUrl} showLargeHero={true}/>
         <ContentSection title="Popular movies" sectionLink="/movies" sectionLinkTitle="All movies">
-          <ContentGrid content={this.state.popularMovies} gridItems={10} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
+          <ContentGrid content={this.state.popularMovies} contentBaseUrl="/movies" gridItems={10} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
         </ContentSection>
         <ContentSection title="Popular Tv shows" sectionLink="/tv-shows" sectionLinkTitle="All Tv shows">
-          <ContentGrid content={this.state.popularTvShows} gridItems={10} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
+          <ContentGrid content={this.state.popularTvShows} contentBaseUrl="/tv-shows" gridItems={10} configBaseUrl={this.state.baseUrl} configPosterSizes={this.state.posterSizes}/>
         </ContentSection>
         <Notice title="Searching for your favorite movie or tv show?" link="/search" linkTitle="Go to search" />
       </main>

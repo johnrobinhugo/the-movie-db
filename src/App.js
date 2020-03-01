@@ -1,9 +1,9 @@
 import React from 'react';
-import { Switch, Route, useParams } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Header from './components/molecules/Header';
 import FrontPage from './components/pages/FrontPage';
-import MoviePage from './components/pages/MoviePage';
+import SinglePage from './components/pages/SinglePage';
 import Footer from './components/molecules/Footer';
 
 import './scss/main.scss';
@@ -22,7 +22,8 @@ class App extends React.Component {
           {/* <Route path="/atoms/buttons">
             <Buttons />
           </Route> */}
-          <Route path="/movies/:id" render={({ match }) => <MoviePage match={match}/>}/>
+          <Route path="/movies/:id" render={({ match }) => <SinglePage match={match} mediaType="movie"/>}/>
+          <Route path="/tv-shows/:id" render={({ match }) => <SinglePage match={match} mediaType="tv-show"/>}/>
           <Route path="/">
             <FrontPage />
           </Route>

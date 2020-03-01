@@ -33,4 +33,20 @@ button {
       color: var(--color-black);
     }
   }
+
+  &--like {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    background: transparent url('../../images/icons/icon-heart-hollow-black.svg') center center / 25px 25px no-repeat;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  &--like-active {
+    background: transparent url('../../images/icons/icon-heart-red.svg') center center / 22px 22px no-repeat;
+  }
 }

@@ -44,6 +44,32 @@ p {
   line-height: 1.5em;
 }
 
+.meta-info > * {
+  margin-top: var(--spacing-1);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.meto-info__item span {
+  font-weight: 700;
+}
+
+.like-this {
+  margin-top: var(--spacing-2);
+  display: flex;
+  align-items: center;
+
+  > * {
+    margin-left: 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
 // Color classes
 .color-white {
   color: var(--color-white);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from "react-redux";
 
 import Navigation from './Navigation';
 
@@ -54,10 +53,4 @@ class Header extends React.Component {
   }
 }
 
-function mapStateToProps(state){
-  return {
-      IsLoggedIn: state.IsLoggedIn,
-  }
-}
-
-export default connect(mapStateToProps)(Header);
+export default Header;

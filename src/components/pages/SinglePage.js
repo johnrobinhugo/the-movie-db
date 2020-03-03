@@ -3,6 +3,8 @@ import React from 'react';
 import Hero from '../molecules/Hero';
 import Like from '../atoms/Like';
 
+import { connect } from 'react-redux';
+
 class SinglePage extends React.Component {
   constructor(props) {
     super(props);
@@ -46,10 +48,19 @@ class SinglePage extends React.Component {
     fetch(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${apiKey}`)
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
         this.setState({ 
           mediaObject: data
         });
+
+        let likesFromStore = this.props.likes;
+
+        for(let i = 0; i < likesFromStore.length; i++) {
+          if (likesFromStore[i].id === this.state.mediaObject.id) {
+            this.setState({
+              likeStatus: true
+            });
+          }
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -61,6 +72,18 @@ class SinglePage extends React.Component {
     this.setState(prevState => ({
       likeStatus: !prevState.likeStatus
     }));
+
+    if(this.state.likeStatus === false) {
+      this.props.dispatch({
+        type: 'ADD_LIKE',
+        payload: {id: this.state.mediaObject.id},
+      });
+    } else {
+      this.props.dispatch({
+        type: 'REMOVE_LIKE',
+        payload: {id: this.state.mediaObject.id},
+      });
+    }
   }
 
   render() {
@@ -106,4 +129,10 @@ class SinglePage extends React.Component {
   }
 }
 
-export default SinglePage;
+function mapStateToProps(state){
+  return {
+    likes: state.likes,
+  }
+}
+
+export default connect(mapStateToProps)(SinglePage);

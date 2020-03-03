@@ -19,9 +19,6 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Switch>
-          {/* <Route path="/atoms/buttons">
-            <Buttons />
-          </Route> */}
           <Route path="/movies/:id" render={({ match }) => <SinglePage match={match} mediaType="movie"/>}/>
           <Route path="/tv-shows/:id" render={({ match }) => <SinglePage match={match} mediaType="tv-show"/>}/>
           <Route path="/">

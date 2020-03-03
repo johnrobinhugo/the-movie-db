@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import Navigation from './Navigation';
 
@@ -6,7 +7,8 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMobileNav: false
+      showMobileNav: false,
+      loggedInstatus: null
     }
 
     this.toggleMobileNav = this.toggleMobileNav.bind(this);
@@ -20,6 +22,7 @@ class Header extends React.Component {
   }
 
   render() {
+
     let toggleButton;
 
     if(this.state.showMobileNav === false) {
@@ -31,7 +34,7 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="header__content page-wrapper">
-          <a href="/" className="site-logo">The Movie DB</a>
+          <a href="/" className="site-logo">The Movie DB {this.props.IsLoggedIn}</a>
           <div className="header__content__links">
             <Navigation />
             <a href="/login" className="button">Log in</a>
@@ -51,4 +54,10 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state){
+  return {
+      IsLoggedIn: state.IsLoggedIn,
+  }
+}
+
+export default connect(mapStateToProps)(Header);

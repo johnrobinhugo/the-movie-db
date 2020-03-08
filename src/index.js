@@ -12,39 +12,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-// Actions
-// const increment = () => {
-//   return {
-//     type: 'INCREMENT'
-//   }
-// }
-
-// const decrement = () => {
-//   return {
-//     type: 'DECREMENT'
-//   }
-// }
-
-// // Reducers
-// const counter = (state = 0, action) => {
-//   switch (action.type) {
-//     case 'INCREMENT':
-//       return state + 1;
-//     case 'DECREMENT':
-//       return state -1;
-//     default: 
-//   }
-// }
-
-// let store = createStore(counter);
-
-// store.subscribe(() => console.log(store.getState()));
-
-// // Dispatch
-// store.dispatch(increment());
-
-//https://www.youtube.com/watch?v=CVpUuw9XSjY&t=265s
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

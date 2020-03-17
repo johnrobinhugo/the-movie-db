@@ -10,7 +10,3 @@ const LikesReducer = (state = [], action) => {
 }
 
 export default LikesReducer;
-
-
-
-// return state.today.filter((item, index) => index !== action.payload)

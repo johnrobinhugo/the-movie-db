@@ -131,7 +131,7 @@ class SinglePage extends React.Component {
 
 function mapStateToProps(state){
   return {
-    likes: state.likes,
+    likes: state.likes
   }
 }
 

@@ -20,11 +20,14 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/movies">
-            <ArchivePage />
-          </Route>
           <Route path="/movies/:id" render={({ match }) => <SinglePage match={match} mediaType="movie"/>}/>
+          <Route path="/movies">
+            <ArchivePage mediaType="movie" archiveTitle="All movies" />
+          </Route>
           <Route path="/tv-shows/:id" render={({ match }) => <SinglePage match={match} mediaType="tv-show"/>}/>
+          <Route path="/tv-shows">
+            <ArchivePage mediaType="tv-show" archiveTitle="All tv-shows" />
+          </Route>
           <Route path="/">
             <FrontPage />
           </Route>

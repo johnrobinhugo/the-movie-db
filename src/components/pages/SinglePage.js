@@ -4,6 +4,7 @@ import Hero from '../molecules/Hero';
 import Like from '../atoms/Like';
 
 import { connect } from 'react-redux';
+import { addLike, removeLike } from '../../store/actions';
 
 class SinglePage extends React.Component {
   constructor(props) {
@@ -74,15 +75,9 @@ class SinglePage extends React.Component {
     }));
 
     if(this.state.likeStatus === false) {
-      this.props.dispatch({
-        type: 'ADD_LIKE',
-        payload: {id: this.state.mediaObject.id},
-      });
+      this.props.addLike({id: this.state.mediaObject.id});
     } else {
-      this.props.dispatch({
-        type: 'REMOVE_LIKE',
-        payload: {id: this.state.mediaObject.id},
-      });
+      this.props.removeLike({id: this.state.mediaObject.id});
     }
   }
 
@@ -129,10 +124,14 @@ class SinglePage extends React.Component {
   }
 }
 
-function mapStateToProps(state){
-  return {
-    likes: state.likes
-  }
-}
+const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(SinglePage);
+const mapDispatchToProps = dispatch => ({
+  addLike: id => dispatch(addLike(id)),
+  removeLike: id => dispatch(removeLike(id)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SinglePage)

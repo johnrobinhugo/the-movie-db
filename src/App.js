@@ -1,11 +1,12 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route } from 'react-router-dom';
 
 import Header from './components/molecules/Header';
 import FrontPage from './components/pages/FrontPage';
 import SinglePage from './components/pages/SinglePage';
 import ArchivePage from './components/pages/ArchivePage';
-import SearchPage from './components/pages/SearchPage'; 
+import SearchPage from './components/pages/SearchPage';
+import LoginPage from './components/pages/LoginPage';
 import Footer from './components/molecules/Footer';
 
 import './scss/main.scss';
@@ -31,6 +32,9 @@ class App extends React.Component {
           </Route>
           <Route path="/search">
             <SearchPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
           <Route path="/">
             <FrontPage />

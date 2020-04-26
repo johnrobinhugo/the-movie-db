@@ -26,14 +26,16 @@ input {
 }
 
 @include for-tablet-portrait-up {
+  input {
+    width: 400px;
+    font-size: 18px;
+  }
+}
+
+@include for-tablet-portrait-up {
   .form__item--search {
     flex-direction: row;
     justify-content: flex-start;
-
-    input {
-      width: 400px;
-      font-size: 18px;
-    }
 
     > * {
       margin-left: 20px;

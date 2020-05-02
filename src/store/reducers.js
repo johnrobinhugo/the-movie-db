@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_LIKE, REMOVE_LIKE } from './actions';
+import { ADD_LIKE, REMOVE_LIKE, SET_USER } from './actions';
 
 function likesReducer(state = [], action) {
   switch(action.type) {
@@ -12,8 +12,18 @@ function likesReducer(state = [], action) {
   }
 }
 
+function userReducer(state = [], action) {
+  switch(action.type) {
+    case SET_USER:
+      return [...state, action.payload]
+    default:
+      return state
+  }
+}
+
 const allReducers = combineReducers({
-  likes: likesReducer
+  likes: likesReducer,
+  user: userReducer
 })
 
 export default allReducers;

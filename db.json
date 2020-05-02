@@ -6,6 +6,13 @@
       "firstname": "Bruce",
       "lastname": "Wayne",
       "password": "iambatman"
+    },
+    {
+      "id": 2,
+      "username": "peter.parker",
+      "firstname": "Peter",
+      "lastname": "Parker",
+      "password": "iambspiderman"
     }
   ]
 }

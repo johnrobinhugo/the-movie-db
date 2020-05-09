@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom'
 
 import ContentSection from '../organisms/ContentSection';
 
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setUser } from '../../store/actions';
 
 function LoginPage(props) {
 
+  const dispatch = useDispatch();
+
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [userFound, setUserFound] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,9 +22,8 @@ function LoginPage(props) {
         let allUsers = data;
         allUsers.forEach(user => {
           if(user.username === username && user.password === password) {
-            this.props.setUser(user);
-
-            // Then push user to store
+            dispatch(setUser(user));
+            setUserFound(true);
           }
         });
       })
@@ -31,6 +34,9 @@ function LoginPage(props) {
 
   return (
     <main className="page">
+      {userFound === true &&
+        <Redirect to="/profile"/>
+      }
       <ContentSection title="Login">
         <form className="form" onSubmit={handleSubmit}>
           <div className="form__item">
@@ -48,10 +54,4 @@ function LoginPage(props) {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  setUser: user => dispatch(setUser(user))
-});
-
-export default connect(
-  mapDispatchToProps
-)(LoginPage)
+export default LoginPage;

@@ -7,6 +7,7 @@ import SinglePage from './components/pages/SinglePage';
 import ArchivePage from './components/pages/ArchivePage';
 import SearchPage from './components/pages/SearchPage';
 import LoginPage from './components/pages/LoginPage';
+import ProfilePage from './components/pages/ProfilePage';
 import Footer from './components/molecules/Footer';
 
 import './scss/main.scss';
@@ -35,6 +36,9 @@ class App extends React.Component {
           </Route>
           <Route path="/login">
             <LoginPage />
+          </Route>
+          <Route path="/profile">
+            <ProfilePage />
           </Route>
           <Route path="/">
             <FrontPage />
